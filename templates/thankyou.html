@@ -1,0 +1,30 @@
+<p>Thanks, <strong>{{ user_name }}</strong>! Your message has been saved.</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <a href="/messages" style="display:block; text-align:center; margin-top: 10px;">📋 View All Messages</a>
+    </div>
+    <div class="form-container">
+    <h1>Saved Messages</h1>
+    {% if messages %}
+      <ul style="list-style: none; padding: 0;">
+        {% for msg in messages %}
+          <li style="margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+            <strong>{{ msg.name }}</strong><br>
+            {{ msg.message }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No messages found.</p>
+    {% endif %}
+    <a href="/" style="display:block; text-align:center;">⬅ Back to Form</a>
+  </div>
+</body>
+</html>
