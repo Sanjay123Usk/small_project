@@ -32,4 +32,5 @@ def messages():
     all_messages = Message.query.all()
     return render_template("thankyou.html", messages=all_messages)
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=10000)
+
